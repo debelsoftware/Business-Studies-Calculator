@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Need help with Business Studies calculations? Find answers fast and easily."/>
+  <script src="js/scripts.js"></script>
+  <link rel="icon" href="logo.png">
+</div>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Business Studies Calculator</title>
+  <div class="navbar-fixed ">
+  <nav>
+    <div class="nav-wrapper teal">
+      <a href="#!" class="brand-logo center">Business Studies</a>
+    </div>
+  </nav>
+</div>
+<div class="fixed-action-btn vertical click-to-toggle">
+    <a class="btn-floating btn-large teal">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating teal darken-1"onclick="feedback()"><i class="material-icons">format_quote</i></a></li>
+    </ul>
+  </div>
+  <!-- CSS  -->
+  <link href="css/icon.css" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body class="grey lighten-4">
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="row center">
+        <div class="center">
+		<h7 class="light"><h7>
+      </div>
+      </div>
+        <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header"><i class="material-icons teal-text">compare_arrows</i>Percentage change</div>
+                <div class="collapsible-body white">
+                  <div class="center">
+                    <p>New - Old / Old x 100</p>
+                    <input placeholder="New Value" id="docGivenNew" type="number" class="center">
+                    <input placeholder="Old Value" id="docGivenOld" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="PCcheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer (%):</h5>
+                    <h6 id="answerPC" >Nothing to show yet</h6>
+                    <h6>&nbsp;<h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons teal-text">opacity</i>Liquidity</div>
+                <div class="collapsible-body center white">
+                  <img>
+                  <h6>Working Capital</h6>
+                  <h6 class="light">Current Assets - Current Liabilities</h6>
+                  <h6>Current Ratio</h6>
+                  <h6 class="light">Current Assets / Current Liabilities</h6>
+                  <h6>Acid Test</h6>
+                  <h6 class="light">Current Assets - Inventory / Current Liabilities </h6>
+                  <h6>&nbsp;</h6>
+                  <input placeholder="Current Assets" id="docGivenCAssets" type="number" class="center">
+                  <input placeholder="Current Liabilities" id="docGivenCLiabilities" type="number" class="center">
+                  <input placeholder="Stock/Inventory (OPTIONAL)" id="docGivenStock" type="number" class="center">
+                  <a class="btn-floating btn-large waves-effect waves-light green" onclick="liquidCheck()"><i class="material-icons">done</i></a>
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <div class="icon-block">
+                        <h2 class="center blue-grey-text"><i class="material-icons teal-text">assessment</i></h2>
+                        <h5 class="center">Current Ratio</h5>
+                        <p id='displayCurrentRatio'class="light center">Not Calculated</p>
+                      </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                      <div class="icon-block">
+                        <h2 class="center blue-grey-text"><i class="material-icons teal-text">trending_up</i></h2>
+                        <h5 class="center">Acid Test</h5>
+                        <p id='displayAcidTest'class="light center">Not Calculated</p>
+                      </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                      <div class="icon-block">
+                        <h2 class="center blue-grey-text"><i class="material-icons teal-text">monetization_on</i></h2>
+                        <h5 class="center">Working Capital (£/$)</h5>
+                        <p id='displayWorkingCapital'class="light center">Not Calculated</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons teal-text">settings</i>Gearing<span class="badge teal-text">Auto Analysis</span></div>
+                <div class="collapsible-body white center">
+                  <p>Long-term Liabilities / Capital Employed X 100</p>
+                  <input placeholder="Long-term liabilities" id="docGivenLLiabilities" type="number" class="center">
+                  <input placeholder="Capital Employed" id="docGivenCapEm" type="number" class="center">
+                  <a class="btn-floating btn-large waves-effect waves-light green" onclick="gearingCheck()"><i class="material-icons">done</i></a>
+                  <h5>Answer (%):</h5>
+                  <h6 id='displayGearing'>Nothing to show yet</h6>
+                  <h5 class="light teal-text">Auto Analysis:</h5>
+                  <h6 id="displayGearingAA"class="light teal-text">No data to analyse</h6>
+                </div>
+              </li>
+			<li>
+                <div class="collapsible-header"><i class="material-icons teal-text">attach_money</i>Contribution per unit</div>
+                <div class="collapsible-body white">
+                  <div class="center">
+                    <p>Selling price - Variable costs per unit</p>
+                    <input placeholder="Selling price" id="docGivenSellingPrice" type="number" class="center">
+                    <input placeholder="Variable cost per unit" id="docGivenVarCostPUnit" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="cpuCheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer (£/$):</h5>
+                    <h6 id="answerCPU" >Nothing to show yet</h6>
+                    <h6>&nbsp;<h6>
+                  </div>
+                </div>
+              </li>
+			<li>
+                <div class="collapsible-header"><i class="material-icons teal-text">monetization_on</i>Gross profit margin</div>
+                <div class="collapsible-body white">
+                  <div class="center">
+                    <p>(Gross profit - Sales revenue) X 100</p>
+                    <input placeholder="Gross Profit" id="docGivenGrossProfit" type="number" class="center">
+                    <input placeholder="Sales Revenue" id="docGivenSR" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="gpmCheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer (%):</h5>
+                    <h6 id="answerGPM" >Nothing to show yet</h6>
+                    <h6>&nbsp;<h6>
+                  </div>
+                </div>
+              </li>
+			<li>
+                <div class="collapsible-header"><i class="material-icons teal-text">trending_up</i>Break even level of output</div>
+                <div class="collapsible-body white">
+                  <div class="center">
+                    <p>Fixed costs / Contribution per unit</p>
+                    <input placeholder="Fixed Costs" id="docGivenFixedCosts" type="number" class="center">
+                    <input placeholder="Contribution per unit" id="docGivenConPU" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="belooCheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer (Units):</h5>
+                    <h6 id="answerBELOO" >Nothing to show yet</h6>
+                    <h6>&nbsp;<h6>
+                  </div>
+                </div>
+              </li>
+				<li>
+                <div class="collapsible-header"><i class="material-icons teal-text">local_atm</i>PED<span class="badge teal-text">Auto Analysis</span></div>
+                <div class="collapsible-body white">
+                  <div class="center">
+                    <p>% Change in quantity demanded / % Change in price</p>
+					<p class="light">Tip: % Change can be calculated using this app</p>
+                    <input placeholder="% Change in quantity demanded" id="docGivenChangeDem" type="number" class="center">
+                    <input placeholder="% Change in price" id="docGivenChangePrice" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="pedCheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer:</h5>
+                    <h6 id="answerPED" >Nothing to show yet</h6>
+					<h5 class="light teal-text">Auto Analysis:</h5>
+                  	<h6 id="displayPEDAA"class="light teal-text">No data to analyse</h6>
+                  </div>
+                </div>
+              </li>
+			  <li>
+                <div class="collapsible-header"><i class="material-icons teal-text">widgets</i>Capacity utilisation</div>
+                <div class="collapsible-body white">
+                  <div class="center">
+					<p class="light">This is the proportion of capacity being used by the business. A business will aim for as close to 100% as possible.</p>
+                    <p>Current output / Max Output X 100</p>
+                    <input placeholder="Current output" id="docGivenCurrentOutput" type="number" class="center">
+                    <input placeholder="Max output" id="docGivenMaxOutput" type="number" class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light green" onclick="capUtilCheck()"><i class="material-icons">done</i></a>
+                    <h5>Answer (%):</h5>
+                    <h6 id="answerCapUtil" >Nothing to show yet</h6>
+                  </div>
+                </div>
+              </li>
+      </ul>
+		<p class="center light" onclick="disclaimer()">Disclaimer<p>
+      <br><br>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+
+
+  <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+
+  </body>
+</html>
